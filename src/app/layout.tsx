@@ -1,8 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Kufi_Arabic } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/components/providers/AuthProvider";
+
+export const viewport: Viewport = {
+  themeColor: "#131921",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,6 +27,14 @@ const notoKufiArabic = Noto_Kufi_Arabic({
 export const metadata: Metadata = {
   title: "متجر بي إتش | BH Store",
   description: "منصة التسوق الإلكتروني الشاملة - أفضل المنتجات بأفضل الأسعار",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "BH STORE",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
